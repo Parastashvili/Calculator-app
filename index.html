@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./reset.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Calculator</title>
+  </head>
+  <body>
+    <header class="header">
+      <h1 class="name" id="name">calc</h1>
+      <div class="theme">
+        <p class="t_name" id="name2">THEME</p>
+        <div class="align_end">
+          <div class="theme_numbers" id="name3">
+            <p class="t_num">1</p>
+            <p class="t_num">2</p>
+            <p class="t_num">3</p>
+          </div>
+          <input type="range" min="1" max="3" value="1" id="rangeInput" />
+        </div>
+      </div>
+    </header>
+    <main>
+      <section class="result" id="result">
+        <p class="result_p" id="result_screen">0</p>
+      </section>
+      <section class="operations" id="operations">
+        <button class="number">7</button>
+        <button class="number">8</button>
+        <button class="number">9</button>
+        <button class="number del">DEL</button>
+        <button class="number">4</button>
+        <button class="number">5</button>
+        <button class="number">6</button>
+        <button class="number">+</button>
+        <button class="number">1</button>
+        <button class="number">2</button>
+        <button class="number">3</button>
+        <button class="number">-</button>
+        <button class="number">.</button>
+        <button class="number">0</button>
+        <button class="number">/</button>
+        <button class="number">x</button>
+        <button class="number resetbtn" id="resetbtn">RESET</button>
+        <button class="number count" id="countbtn">=</button>
+      </section>
+    </main>
+    <script src="./calculator.js"></script>
+  </body>
+</html>
