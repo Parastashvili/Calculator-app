@@ -7,12 +7,16 @@ let secondNum = "";
 let operation = "";
 let operation2 = "";
 let makeoperation = "";
+const history = document.getElementById("result_screenH");
 for (let i = 0; i < nums.length; i++) {
   nums[i].addEventListener("click", function () {
-    // if (firstNum.includes("g") && nums[i].textContent == ".") {
-    //   alert("Invalid operation: decimal point already found");
-    //   return;
-    // }
+    const screen_txt = document.getElementById("result_screen");
+    if (firstNum.length > 9) {
+      screen_txt.style.fontSize = "26px";
+    }
+    if (firstNum.length > 18) {
+      alert("Are you sure ? it is too much");
+    }
     if (firstNum == "0" && nums[i].textContent == "0") {
       alert("Invalid operation: The first number is already 0.");
       return;
@@ -27,22 +31,29 @@ for (let i = 0; i < nums.length; i++) {
       nums[i].textContent == "6" ||
       nums[i].textContent == "7" ||
       nums[i].textContent == "8" ||
-      nums[i].textContent == "9"
+      nums[i].textContent == "9" ||
+      nums[i].textContent == "."
     ) {
-      firstNum += nums[i].textContent;
-      screen.textContent = firstNum;
-      operation = firstNum;
-      //   console.log(firstNum);
+      if (firstNum.includes(".") && nums[i].textContent == ".") {
+        return;
+      } else {
+        firstNum += nums[i].textContent;
+        screen.textContent = firstNum;
+      }
     }
     if (
-      nums[i].textContent === "+" ||
-      nums[i].textContent === "-" ||
-      nums[i].textContent === "/" ||
-      nums[i].textContent === "x"
+      nums[i].textContent == "+" ||
+      nums[i].textContent == "-" ||
+      nums[i].textContent == "/" ||
+      nums[i].textContent == "x"
     ) {
-      makeoperation = nums[i].textContent;
-      screen.textContent = "";
-      firstNum = "";
+      if (makeoperation == "") {
+        history.textContent = firstNum;
+        screen.textContent = "";
+        firstNum = "";
+      }
+      makeoperation += nums[i].textContent;
+      console.log(makeoperation);
     } else if (nums[i].textContent == "RESET") {
       firstNum = "";
       secondNum = "";
@@ -55,8 +66,9 @@ for (let i = 0; i < nums.length; i++) {
       screen.textContent = firstNum;
       console.log(firstNum);
     } else if (nums[i].textContent == "=") {
-      secondNum = parseInt(operation);
+      secondNum = parseInt(history.textContent);
       firstNum = parseInt(firstNum);
+      makeoperation = makeoperation.substring(makeoperation.length - 1);
       if (makeoperation == "-") {
         screen.textContent = secondNum - firstNum;
         firstNum = secondNum - firstNum;
@@ -70,6 +82,8 @@ for (let i = 0; i < nums.length; i++) {
         screen.textContent = secondNum / firstNum;
         firstNum = secondNum / firstNum;
       }
+      history.textContent = "0";
+      makeoperation = "";
     }
   });
 }

@@ -85,22 +85,30 @@ input[type="range"]::-webkit-slider-thumb {
 .result {
   background: #181f33;
   border-radius: 10px;
-  width: 303px;
+  width: 279px;
   height: 88px;
   margin: 32px 0 24px 0;
   display: flex;
-  align-items: center;
-  justify-content: right;
-  padding-right: 24px;
+  flex-direction: column;
+  align-items: end;
+  padding: 0 24px;
 }
+
 .result_p {
   font-size: 40px;
   line-height: 37px;
   text-align: right;
   letter-spacing: -0.666667px;
   color: var(--white);
-  max-width: 280px;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  margin-top: 12px;
   overflow: hidden;
+}
+.opacy {
+  opacity: 0.3;
+  font-size: 20px;
+  line-height: 17px;
 }
 .operations {
   width: 279px;
