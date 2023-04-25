@@ -17,6 +17,9 @@ body {
   width: 100vw;
   min-width: 100%;
 }
+button {
+  cursor: pointer;
+}
 .header {
   display: flex;
   align-items: end;
@@ -101,7 +104,6 @@ input[type="range"]::-webkit-slider-thumb {
   letter-spacing: -0.666667px;
   color: var(--white);
   max-width: 100%;
-  text-overflow: ellipsis;
   margin-top: 12px;
   overflow: hidden;
 }
@@ -196,4 +198,57 @@ input[type="range"]::-webkit-slider-thumb {
   letter-spacing: -0.333333px;
   color: var(--white);
   grid-column: 3 / span 2;
+}
+@media (min-width: 920px) {
+  .header {
+    width: 540px;
+  }
+  .result {
+    width: 492px;
+    height: 128px;
+  }
+
+  .result_p {
+    font-size: 48px;
+    line-height: 57px;
+    margin-top: 22px;
+  }
+  .opacy {
+    opacity: 0.4;
+    font-size: 24px;
+    line-height: 26px;
+  }
+  .operations {
+    width: 492px;
+    height: 432px;
+    row-gap: 24px;
+    column-gap: 24px;
+  }
+  .number {
+    width: 101px;
+    height: 64px;
+    font-size: 40px;
+    line-height: 37px;
+  }
+  .del {
+    width: 101px;
+    height: 64px;
+    font-size: 28px;
+    line-height: 26px;
+  }
+  .resetbtn {
+    height: 64px;
+    width: 227px;
+    font-size: 28px;
+    line-height: 26px;
+  }
+  .count {
+    height: 64px;
+    width: 227px;
+    font-size: 28px;
+    line-height: 26px;
+  }
+  button:hover {
+    opacity: 0.7;
+  }
 }

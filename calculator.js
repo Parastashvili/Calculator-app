@@ -8,33 +8,31 @@ let operation = "";
 let operation2 = "";
 let makeoperation = "";
 const history = document.getElementById("result_screenH");
+
 for (let i = 0; i < nums.length; i++) {
   nums[i].addEventListener("click", function () {
     const screen_txt = document.getElementById("result_screen");
-    if (firstNum.length > 9) {
-      screen_txt.style.fontSize = "26px";
+    if (firstNum.length > 25) {
+      alert("Are you sure? That's too much!");
     }
-    if (firstNum.length > 18) {
-      alert("Are you sure ? it is too much");
-    }
-    if (firstNum == "0" && nums[i].textContent == "0") {
+    if (firstNum === "0" && nums[i].textContent === "0") {
       alert("Invalid operation: The first number is already 0.");
       return;
     }
     if (
-      nums[i].textContent == "0" ||
-      nums[i].textContent == "1" ||
-      nums[i].textContent == "2" ||
-      nums[i].textContent == "3" ||
-      nums[i].textContent == "4" ||
-      nums[i].textContent == "5" ||
-      nums[i].textContent == "6" ||
-      nums[i].textContent == "7" ||
-      nums[i].textContent == "8" ||
-      nums[i].textContent == "9" ||
-      nums[i].textContent == "."
+      nums[i].textContent === "0" ||
+      nums[i].textContent === "1" ||
+      nums[i].textContent === "2" ||
+      nums[i].textContent === "3" ||
+      nums[i].textContent === "4" ||
+      nums[i].textContent === "5" ||
+      nums[i].textContent === "6" ||
+      nums[i].textContent === "7" ||
+      nums[i].textContent === "8" ||
+      nums[i].textContent === "9" ||
+      nums[i].textContent === "."
     ) {
-      if (firstNum.includes(".") && nums[i].textContent == ".") {
+      if (firstNum.includes(".") && nums[i].textContent === ".") {
         return;
       } else {
         firstNum += nums[i].textContent;
@@ -42,44 +40,46 @@ for (let i = 0; i < nums.length; i++) {
       }
     }
     if (
-      nums[i].textContent == "+" ||
-      nums[i].textContent == "-" ||
-      nums[i].textContent == "/" ||
-      nums[i].textContent == "x"
+      nums[i].textContent === "+" ||
+      nums[i].textContent === "-" ||
+      nums[i].textContent === "/" ||
+      nums[i].textContent === "x"
     ) {
-      if (makeoperation == "") {
+      if (makeoperation === "") {
         history.textContent = firstNum;
         screen.textContent = "";
         firstNum = "";
       }
       makeoperation += nums[i].textContent;
-      console.log(makeoperation);
-    } else if (nums[i].textContent == "RESET") {
+    } else if (nums[i].textContent === "RESET") {
       firstNum = "";
       secondNum = "";
       operation = "";
       operation2 = "";
       makeoperation = "";
       screen.textContent = "0";
-    } else if (nums[i].textContent == "DEL") {
+    } else if (nums[i].textContent === "DEL") {
       firstNum = firstNum.slice(0, -1);
       screen.textContent = firstNum;
-      console.log(firstNum);
-    } else if (nums[i].textContent == "=") {
-      secondNum = parseInt(history.textContent);
-      firstNum = parseInt(firstNum);
+    } else if (nums[i].textContent === "=") {
+      secondNum = parseFloat(history.textContent);
+      firstNum = parseFloat(firstNum);
       makeoperation = makeoperation.substring(makeoperation.length - 1);
-      if (makeoperation == "-") {
-        screen.textContent = secondNum - firstNum;
+      if (makeoperation === "-") {
+        operation2 = (secondNum - firstNum).toFixed(2);
+        screen.textContent = operation2;
         firstNum = secondNum - firstNum;
-      } else if (makeoperation == "+") {
-        screen.textContent = secondNum + firstNum;
+      } else if (makeoperation === "+") {
+        operation2 = (secondNum + firstNum).toFixed(2);
+        screen.textContent = operation2;
         firstNum = secondNum + firstNum;
-      } else if (makeoperation == "x") {
-        screen.textContent = secondNum * firstNum;
+      } else if (makeoperation === "x") {
+        operation2 = (secondNum * firstNum).toFixed(2);
+        screen.textContent = operation2;
         firstNum = secondNum * firstNum;
-      } else if (makeoperation == "/") {
-        screen.textContent = secondNum / firstNum;
+      } else if (makeoperation === "/") {
+        operation2 = (secondNum / firstNum).toFixed(2);
+        screen.textContent = operation2;
         firstNum = secondNum / firstNum;
       }
       history.textContent = "0";
